@@ -13,6 +13,7 @@ namespace Library
         private string author;
         private double price;
         private bool bookIsLoanedOut;
+        private int noOfLoans; // Step 3a
 
 
         // Constructor
@@ -23,6 +24,7 @@ namespace Library
             this.author = author;
             this.price = price;
             this.bookIsLoanedOut = false;
+            this.noOfLoans = 0; // Step 3b
         }
 
 
@@ -53,6 +55,12 @@ namespace Library
             return bookIsLoanedOut;
         }
 
+        // Step 3d
+        public int GetNumberOfLoans()
+        {
+            return noOfLoans;
+        }
+
 
         // The below two methods are supposed to be called when a user
         // loans the book from the library, and returns the book to the library.
@@ -60,6 +68,7 @@ namespace Library
         public void BorrowFromLibrary()
         {
             bookIsLoanedOut = true;
+            noOfLoans++; // Step 3c
         }
 
         public void ReturnToLibrary()
@@ -70,10 +79,10 @@ namespace Library
         // Prints out complete information about the book
         public void PrintInformation()
         {
-            Console.WriteLine("ISBN {0} : {1}, by {2}  (price {3})", isbnCode, title, author, price);
+            // Step 3e
+            Console.WriteLine("ISBN {0} : {1}, by {2}  (price {3}), {4}, times loaned out: {5}", isbnCode, title, author, price, LoanStatus(), GetNumberOfLoans());
             Console.WriteLine();
         }
-
 
         // Just a little helper method to make the printing of book
         // information look nicer. Don't worry about how this method works...
@@ -88,5 +97,6 @@ namespace Library
                 return "book is NOT loaned out";
             }
         }
+
     }
 }
