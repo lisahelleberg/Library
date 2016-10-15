@@ -13,6 +13,7 @@ namespace Library
         private string author;
         private double price;
         private bool bookIsLoanedOut;
+        private int numberOfLoans;
 
 
         // Constructor
@@ -23,6 +24,7 @@ namespace Library
             this.author = author;
             this.price = price;
             this.bookIsLoanedOut = false;
+            this.numberOfLoans = 0;
         }
 
 
@@ -60,6 +62,9 @@ namespace Library
         public void BorrowFromLibrary()
         {
             bookIsLoanedOut = true;
+            numberOfLoans = numberOfLoans++;
+            Console.WriteLine("You have checked out the book {0} by {1}", title, author);
+            Console.WriteLine();
         }
 
         public void ReturnToLibrary()
@@ -71,6 +76,7 @@ namespace Library
         public void PrintInformation()
         {
             Console.WriteLine("ISBN {0} : {1}, by {2}  (price {3})", isbnCode, title, author, price);
+            Console.WriteLine("This book has been loaned out {0} times", numberOfLoans);
             Console.WriteLine();
         }
 
