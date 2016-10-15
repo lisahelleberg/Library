@@ -62,13 +62,15 @@ namespace Library
         public void BorrowFromLibrary()
         {
             if (bookIsLoanedOut == true)
-            { Console.WriteLine("You can't loan the book {0} by {1}", title, author); }
+            { Console.WriteLine("You can't loan the book '{0}' by {1}", title, author); 
+            Console.WriteLine();
+        }
 
             else
             {
                 bookIsLoanedOut = true;
                 numberOfLoans = ++numberOfLoans;
-                Console.WriteLine("You have checked out the book {0} by {1}", title, author);
+                Console.WriteLine("You have checked out the book '{0}' by {1}", title, author);
                 Console.WriteLine();
             }
         }
@@ -76,6 +78,8 @@ namespace Library
         public void ReturnToLibrary()
         {
             bookIsLoanedOut = false;
+            Console.WriteLine("The book '{0}' by {1} has been returned", title, author);
+            Console.WriteLine();
         }
 
         // Prints out complete information about the book
@@ -86,6 +90,11 @@ namespace Library
             Console.WriteLine();
         }
 
+        public void PrintLoanStatus()
+        {
+            Console.WriteLine(LoanStatus());
+        }
+
 
         // Just a little helper method to make the printing of book
         // information look nicer. Don't worry about how this method works...
@@ -93,11 +102,11 @@ namespace Library
         {
             if (bookIsLoanedOut)
             {
-                return "book is loaned out";
+                return "Book is loaned out";
             }
             else
             {
-                return "book is NOT loaned out";
+                return "Book is NOT loaned out";
             }
         }
     }

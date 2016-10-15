@@ -21,7 +21,17 @@ namespace Library
 
             aBook.BorrowFromLibrary();
 
+            aBook.ReturnToLibrary();
+
+            aBook.BorrowFromLibrary();
+            
+            aBook.BorrowFromLibrary();
+
+            aBook.ReturnToLibrary();
+
             aBook.PrintInformation();
+
+            aBook.PrintLoanStatus();
 
             
 
