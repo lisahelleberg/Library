@@ -21,6 +21,8 @@ namespace Library
 
             aBook.BorrowFromLibrary();
 
+            aBook.PrintInformation();
+
             
 
 

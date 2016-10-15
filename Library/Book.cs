@@ -61,10 +61,16 @@ namespace Library
         //
         public void BorrowFromLibrary()
         {
-            bookIsLoanedOut = true;
-            numberOfLoans = numberOfLoans++;
-            Console.WriteLine("You have checked out the book {0} by {1}", title, author);
-            Console.WriteLine();
+            if (bookIsLoanedOut == true)
+            { Console.WriteLine("You can't loan the book {0} by {1}", title, author); }
+
+            else
+            {
+                bookIsLoanedOut = true;
+                numberOfLoans = ++numberOfLoans;
+                Console.WriteLine("You have checked out the book {0} by {1}", title, author);
+                Console.WriteLine();
+            }
         }
 
         public void ReturnToLibrary()
